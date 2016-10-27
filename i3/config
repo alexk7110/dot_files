@@ -37,6 +37,7 @@ bindsym $mod+Return exec gnome-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
+# Set color values to variables to be used by rofi settings underneath
 set $bg-color 	         #2f343f
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
@@ -214,7 +215,7 @@ client.background       #ffffff
 client.focused          #283E4E #285577 #FFFFFF #49BBD2
 client.focused_inactive #314757 #314757 #ffffff #484e50
 client.unfocused        #505050 #505050 #8A8A8A #2e9ef4
-client.urgent 		#2f343a #900000 #ffffff #900000
+client.urgent           #2f343a #900000 #ffffff #900000
 
 # Previous unused colorscheme
 # class                 border  backgr. text    indicator child_border
