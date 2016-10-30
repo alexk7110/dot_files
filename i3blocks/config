@@ -37,7 +37,7 @@ instance=caps
 interval=1
 
 [music]
-label=
+label=
 command=mpc current
 interval=20
 
@@ -136,7 +136,7 @@ interval=60
 #interval=60
 
 [memory]
-label=
+label=MEM
 instance=mem;free
 interval=30
 

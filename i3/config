@@ -198,7 +198,7 @@ exec xrandr --output eDP1 --primary
 
 bar {
         status_command i3blocks # i3status
-		font pango:Terminus, FontAwesome 13
+		font pango:Terminus, FontAwesome 12
         tray_output primary
 		workspace_buttons yes
 		separator_symbol "|"
