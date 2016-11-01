@@ -190,7 +190,7 @@ mode "$mode_power" {
     bindsym Escape mode "default"
 }
 bindsym $mod+Control+l mode "$mode_power"
-bindsym $mod+Shift+l exec --no-startup-id "i3-nagbar -t warning -m 'Power Mode' -b 'lock' 'i3lock -n -i $HOME/Pictures/new-york-city.png -e -f' -b 'logout' 'i3-msg exit' -b 'reboot' 'i3exit reboot' -b 'shutdown' 'i3exit shutdown'"
+# bindsym $mod+Shift+l exec --no-startup-id "i3-nagbar -t warning -m 'Power Mode' -b 'lock' 'i3lock -n -i $HOME/Pictures/new-york-city.png -e -f' -b 'logout' 'i3-msg exit' -b 'reboot' 'i3exit reboot' -b 'shutdown' 'i3exit shutdown'"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
@@ -201,10 +201,9 @@ bar {
 		font pango:Terminus, FontAwesome 12
         tray_output primary
 		workspace_buttons yes
-		separator_symbol "|"
 		colors {
-		    separator #000099
-			background #000000
+		    separator #FF9900
+			backgroun #000000
 		}
 
 }
