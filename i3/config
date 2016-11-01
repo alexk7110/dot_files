@@ -203,7 +203,9 @@ bar {
 		workspace_buttons yes
 		colors {
 		    separator #FF9900
-			backgroun #000000
+			background #000000
+					#          border  background text
+			focused_workspace  #FF9900 #FF9900 #800000
 		}
 
 }
