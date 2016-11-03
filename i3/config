@@ -195,12 +195,16 @@ bindsym $mod+Control+l mode "$mode_power"
 # finds out, if available)
 
 exec xrandr --output eDP1 --primary
+# Toggle for bar
+bindsym $mod+m bar mode toggle
 
 bar {
         status_command i3blocks # i3status
-		font pango:Terminus, FontAwesome 12
+	font pango:Terminus, FontAwesome 12
         tray_output primary
-		workspace_buttons yes
+	workspace_buttons yes
+	bindsym button1 nop
+	bindsym button2 nop
 		colors {
 		    separator #FF9900
 			background #000000
