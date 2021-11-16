@@ -1,0 +1,208 @@
+" ========== BASICS {{{
+
+set nocompatible " Break ties with Vi
+set encoding=utf-8 " Default file encoding
+set fileencodings=utf-8,windows-1253 " Choose the encodings you open the most
+set fileformat=unix " Default file format
+filetype plugin indent on " Helps with file type recognition
+set spl=el,en
+set nobackup
+" set nowritebackup
+set noswapfile
+" Auto indentation
+" Preserve the same level of indentation each time we create a new line in Insert mode.
+" Also, do smart autoindenting when starting a new line.
+set autoindent
+set smartindent
+set confirm  " Ask before unsafe actions
+set hidden  " Don't warn of changes when moving to another buffer
+" Remove the comment from new lines in normal and edit mode
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+" Don't wait too much for keycodes send by terminal, so there's no delay on <ESC>
+set notimeout
+set ttimeout
+set timeoutlen=2000
+set ttimeoutlen=30
+" Tabs and expansion
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set mouse=a " Enabling the mouse for all modes
+set path+=.,,** " Make all subfolders from working searchable with find command
+set keywordprg=:help " Command to use for help with keywords when pressing K, default is 'man'
+" Undo levels and undo folder
+set undodir=~/.vim-undo
+set undofile
+set undolevels=1000 "max number of changes that can be undone
+set undoreload=10000 "max number lines to save for undo on buffer reload
+" }}}
+" ========== COLOR and VISUALS {{{
+
+set t_Co=256 " Terminal with 256 colors
+syntax on "Syntax highlighting on
+colorscheme vimbrains
+let g:airline_powerline_fonts = 1 " Use powerline fonts on airline at the bottom
+let g:airline_theme='distinguished' " alts is gruvbox, zenburn
+let g:airline#extensions#tabline#enabled = 1 " Airline buffer tabs
+set splitbelow  " new window from split is below the current one
+set splitright  " new window is put right of the current one
+set laststatus=2 " Status bar always visible
+set visualbell " Flash screen instead of sound
+set cursorline " Highlight the cursor line
+set scrolloff=3 " Keep this many lines on top or bottom during scrolling
+set lazyredraw " Screen will not redraw while executing macros
+set wildmenu " Infinitely useful popup menubar at bottom
+set wildmode=full " Wildcard expansion mode
+set number " Show absolute numbers
+set ruler " Show cursor position
+set showcmd " Shows commands while being typed
+set showmatch " Show matching brackets
+set list " Show whitespace characters
+set listchars=eol:¬,tab:>·,trail:· " Symbols to use to show whitespace characters with list
+set shortmess+=I " Don't show the intro message
+" Highlight colors for certain aspects of vim
+" set colorcolumn=80 " Highlight column 80 for example
+" hi ColorColumn ctermbg=231 " color to use for column highlight
+" highlight Folded guibg=black guifg=orange
+" highlight FoldColumn guibg=black guifg=orange
+" command TabColors :source ~/.vim/tab_colors.vim
+" }}}
+" ========== LEADER KEY AND KEY MAPPING {{{
+
+" Center after movement
+nmap G Gzz
+nmap } }zz
+nmap { {zz
+nmap n nzz
+nmap N Nzz
+" Use Enter in normal mode to insert new line
+" nmap <S-Enter> O<Esc>
+" nmap <CR> o<Esc>
+" Normal mode character ; will open command mode
+" nmap ; :
+" Make <space> the leader key
+let mapleader=" "
+" leader e reopens a windows char encoded file to fix letters
+" <silent> doesn't echo the command to the line
+" nnoremap <silent> <leader>e :e ++enc=windows-1253<CR>
+nnoremap <silent> <leader>h :noh<cr>
+nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>o :Files<CR>
+nnoremap <silent> <leader>q :q<CR>
+nnoremap <silent> <leader>r :call NumberToggle()<cr>
+nnoremap <silent> <leader>s :w<CR>
+nnoremap <silent> <leader>t :terminal<CR>
+nnoremap <silent> <leader>w <C-w><C-w>
+nmap <silent> <leader>n :NERDTreeToggle<CR>
+imap <c-x><c-f> <plug>(fzf-complete-path)
+" Change buffers with Ctrl+n Ctrl+p
+nnoremap <silent> <C-n> :bnext<CR>
+nnoremap <silent> <C-p> :bprevious<CR>
+" Always do very magic search
+" nnoremap <silent> / :BLines<CR>
+" vnoremap <silent> / :BLines<CR>
+nnoremap / /\v
+vnoremap / /\v
+" Give file DOS or UNIX file format
+map <leader>u :set fileformat=unix<CR>
+map <leader>d :set fileformat=dos<CR>
+" Function to alter the gutter numbering
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number norelativenumber
+  else
+    set number relativenumber
+  endif
+endfunc
+" }}}
+" ========== SEARCH {{{
+
+set hlsearch " Highlight search
+set ignorecase " Ignore case when searching
+set smartcase  " no ignore case when pattern has uppercase
+set incsearch " Show incremental search results
+" }}}
+" ========== LINE WRAPPING {{{
+
+set wrap
+set linebreak " Make wrap cut whole words
+" }}}
+" ========== FOLDING {{{
+
+set foldmethod=marker " Fold method becomes automatic
+" }}}
+" ========== MISCELLANEOUS FUNCTIONS AND COMMANDS {{{
+
+" Accidental press of Wq changes to wq
+command! Wq :wq
+command! W :w
+command! Q :q
+
+" Define md files as markdown
+" au BufNewFile,BufFilePre,BufRead *.txt set filetype=markdown
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+
+" Trim white space function
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+" command Trim :call TrimWhiteSpace()
+
+" Filter command, no idea what it does
+" command! -nargs=? Filter let @a='' | execute 'g/<args>/y A' | new | setlocal bt=nofile | put! a
+
+" Escape out of Insert Mode automatically
+" au InsertEnter * let updaterestore=&updatetime | set updatetime=10000
+" au InsertLeave * let &updatetime=updaterestore
+" au CursorHoldI * stopinsert
+" }}}
+" ========== DISABLED {{{
+
+" HIGHLIGHT WHITESPACE
+" highlight ExtraWhitespace ctermbg=red guibg=red
+" match ExtraWhitespace /\s\+$/
+" command! -nargs=* ShowWhitespace execute match ExtraWhitespace /\s\+$/
+" }}}
+" ========== ABBREVIATIONS {{{
+
+iabbrev teh the
+" }}}
+" ========== NERDtree {{{
+
+let NERDTreeShowBookmarks=1
+let NERDTreeShowLineNumbers=1
+let NERDTreeWinSize=36
+let NERDTreeMinimalUI=1
+" }}}
+" ========== AUTOCOMMENTING with ,cc ,cu {{{
+
+" Commenting blocks of code.
+autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
+autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+autocmd FileType conf,fstab       let b:comment_leader = '# '
+autocmd FileType tex              let b:comment_leader = '% '
+autocmd FileType mail             let b:comment_leader = '> '
+autocmd FileType vim              let b:comment_leader = '" '
+noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+" }}}
+" ========== PLUGINS {{{
+
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+" Make sure you use single quotes
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+Plug 'mboughaba/i3config.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'mcchrish/nnn.vim'
+" Plug 'junegunn/vim-easy-align'
+" Plug 'https://github.com/suan/vim-instant-markdown.git'
+" Initialize plugin system
+call plug#end()
+" }}}
