@@ -205,4 +205,5 @@ Plug 'mcchrish/nnn.vim'
 " Plug 'https://github.com/suan/vim-instant-markdown.git'
 " Initialize plugin system
 call plug#end()
+
 " }}}
