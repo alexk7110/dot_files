@@ -1,5 +1,5 @@
 # dot_files
-My i3 and various other settings files for easy recovery and inspiration</br>
-The i3blocks settings and bash scripts come from the excelent https://github.com/Anachron/i3blocks
+My most basic dot files for disaster  recovery.
 
-This is clearly an old repo I use for testing.
+I've commented out some dependecies until I implement the whole thing in Ansible.
+
