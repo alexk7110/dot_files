@@ -40,7 +40,7 @@ set undoreload=10000 "max number lines to save for undo on buffer reload
 
 set t_Co=256 " Terminal with 256 colors
 syntax on "Syntax highlighting on
-" colorscheme vimbrains
+colorscheme vimbrains
 " let g:airline_powerline_fonts = 1 " Use powerline fonts on airline at the bottom
 " let g:airline_theme='distinguished' " alts is gruvbox, zenburn
 " let g:airline#extensions#tabline#enabled = 1 " Airline buffer tabs
