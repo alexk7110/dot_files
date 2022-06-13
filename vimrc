@@ -40,10 +40,10 @@ set undoreload=10000 "max number lines to save for undo on buffer reload
 
 set t_Co=256 " Terminal with 256 colors
 syntax on "Syntax highlighting on
-colorscheme vimbrains
-let g:airline_powerline_fonts = 1 " Use powerline fonts on airline at the bottom
-let g:airline_theme='distinguished' " alts is gruvbox, zenburn
-let g:airline#extensions#tabline#enabled = 1 " Airline buffer tabs
+" colorscheme vimbrains
+" let g:airline_powerline_fonts = 1 " Use powerline fonts on airline at the bottom
+" let g:airline_theme='distinguished' " alts is gruvbox, zenburn
+" let g:airline#extensions#tabline#enabled = 1 " Airline buffer tabs
 set splitbelow  " new window from split is below the current one
 set splitright  " new window is put right of the current one
 set laststatus=2 " Status bar always visible
@@ -93,7 +93,7 @@ nnoremap <silent> <leader>r :call NumberToggle()<cr>
 nnoremap <silent> <leader>s :w<CR>
 nnoremap <silent> <leader>t :terminal<CR>
 nnoremap <silent> <leader>w <C-w><C-w>
-nmap <silent> <leader>n :NERDTreeToggle<CR>
+" nmap <silent> <leader>n :NERDTreeToggle<CR>
 imap <c-x><c-f> <plug>(fzf-complete-path)
 " Change buffers with Ctrl+n Ctrl+p
 nnoremap <silent> <C-n> :bnext<CR>
@@ -169,10 +169,10 @@ iabbrev teh the
 " }}}
 " ========== NERDtree {{{
 
-let NERDTreeShowBookmarks=1
-let NERDTreeShowLineNumbers=1
-let NERDTreeWinSize=36
-let NERDTreeMinimalUI=1
+" let NERDTreeShowBookmarks=1
+" let NERDTreeShowLineNumbers=1
+" let NERDTreeWinSize=36
+" let NERDTreeMinimalUI=1
 " }}}
 " ========== AUTOCOMMENTING with ,cc ,cu {{{
 
@@ -191,19 +191,19 @@ noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<
 " Specify a directory for plugins
 " - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
+" call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 " Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-Plug 'mboughaba/i3config.vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'mcchrish/nnn.vim'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+" Plug 'junegunn/fzf.vim'
+" Plug 'mboughaba/i3config.vim'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+" Plug 'mcchrish/nnn.vim'
 " Plug 'junegunn/vim-easy-align'
 " Plug 'https://github.com/suan/vim-instant-markdown.git'
 " Initialize plugin system
-call plug#end()
+" call plug#end()
 
 " }}}
